@@ -1,4 +1,4 @@
-Setup 
+# Jupyter Notebook Setup 
 
 
 Create virtual env
@@ -10,7 +10,13 @@ venv\Scripts\activate      # Windows
 ```
 
 Install Jupyter
-```pip install notebook```
+
+```
+pip install notebook
+```
 
 Launch Notebook
-```jupyter notebook```
+
+```
+jupyter notebook
+```
