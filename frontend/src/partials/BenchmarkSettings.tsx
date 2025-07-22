@@ -12,7 +12,7 @@ import { ListItem, ListItemWithSearch } from "../utility/ListItems";
 import { WORKLOAD_EXPLANATIONS, SCALING_EXPLANATIONS } from "../utility/descriptions";
 import UtilizationInput from "../utility/UtilizationInput.js";
 
-export const WORKLOAD_TYPES = ['FP16', 'FP32', 'FP64', 'BENCH_S_MATRIX'] as const;
+export const WORKLOAD_TYPES = ['FP16', 'FP32', 'FP64', 'BENCH_MULT/S_MATRIX'] as const;
 export type WorkloadType = typeof WORKLOAD_TYPES[number];
 
 export const SCALING_TYPES = ['None', 'Utilization', 'Emissions'] as const;
@@ -47,7 +47,7 @@ export interface CPUEntry {
   HBM_STACKS: number | null,
   MEMORY_TYPE: MemoryType,
   HPI_AVAILABLE: number,
-  BENCH_S_MATRIX: PerformanceType,
+  'BENCH_MULT/S_MATRIX': PerformanceType,
 }
 
 type PerformanceKeys = {
@@ -58,11 +58,11 @@ export interface WorkloadMappingType {
   FP16: PerformanceKeys;
   FP32: PerformanceKeys;
   FP64: PerformanceKeys;
-  BENCH_S_MATRIX: PerformanceKeys;
+  'BENCH_MULT/S_MATRIX': PerformanceKeys;
 }
 
 export const WORKLOAD_MAPPING: WorkloadMappingType = {
-  BENCH_S_MATRIX: 'BENCH_S_MATRIX',
+  'BENCH_MULT/S_MATRIX': 'BENCH_MULT/S_MATRIX',
   FP16: 'FP16',
   FP32: 'FP32',
   FP64: 'FP64',

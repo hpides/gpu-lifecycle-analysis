@@ -23,7 +23,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 5,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   },
   "V100": {
     "YEAR": 2017,
@@ -43,7 +43,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 1.1286
+    "BENCH_MULT/S_MATRIX": 7078503434490
   },
   "A100": {
     "YEAR": 2020,
@@ -63,7 +63,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 6,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 9195571412808
   },
   "B200": {
     "YEAR": 2024,
@@ -83,7 +83,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM3",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 26129854927045
   },
   "A40": {
     "YEAR": 2020,
@@ -100,10 +100,10 @@ const CPU_DATA: CPUs = {
     "FP16": 37.42,
     "FP32": 37.42,
     "FP64": 0.584,
-    "HBM_STACKS": null,
+    "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 11396790663749
   },
   "2080ti": {
     "YEAR": 2018,
@@ -120,10 +120,10 @@ const CPU_DATA: CPUs = {
     "FP16": 26.9,
     "FP32": 13.45,
     "FP64": 0.4202,
-    "HBM_STACKS": null,
+    "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_S_MATRIX": 1.2886
+    "BENCH_MULT/S_MATRIX": 0
   },
   "P100": {
     "YEAR": 2016,
@@ -143,7 +143,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 0,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   },
   "K80": {
     "YEAR": 2014,
@@ -160,10 +160,10 @@ const CPU_DATA: CPUs = {
     "FP16": 0,
     "FP32": 8.226,
     "FP64": 2.742,
-    "HBM_STACKS": 0,
+    "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR5",
     "HPI_AVAILABLE": 0,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   },
   "T4": {
     "YEAR": 2018,
@@ -180,10 +180,10 @@ const CPU_DATA: CPUs = {
     "FP16": 65.13,
     "FP32": 8.141,
     "FP64": 0.2544,
-    "HBM_STACKS": 0,
+    "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   },
   "A30": {
     "YEAR": 2021,
@@ -203,7 +203,7 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 3,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 0,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   },
   "L40": {
     "YEAR": 2022,
@@ -220,10 +220,10 @@ const CPU_DATA: CPUs = {
     "FP16": 90.52,
     "FP32": 90.52,
     "FP64": 1.4143,
-    "HBM_STACKS": null,
+    "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0
   }
 }
 
