@@ -23,7 +23,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 5,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   },
   "V100": {
     "YEAR": 2017,
@@ -43,7 +45,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 7078503434490
+    "BENCH_MULT/S_MATRIX": 7078503434490,
+    "MKEYS/S_SORT": 10722.2,
+    "TCPxAIUCpm@1.0": 40.121
   },
   "A100": {
     "YEAR": 2020,
@@ -63,7 +67,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 6,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 9195571412808
+    "BENCH_MULT/S_MATRIX": 9195571412808,
+    "MKEYS/S_SORT": 13649.6,
+    "TCPxAIUCpm@1.0": 0
   },
   "B200": {
     "YEAR": 2024,
@@ -83,7 +89,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM3",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 26129854927045
+    "BENCH_MULT/S_MATRIX": 26129854927045,
+    "MKEYS/S_SORT": 39145.8,
+    "TCPxAIUCpm@1.0": 0
   },
   "A40": {
     "YEAR": 2020,
@@ -103,7 +111,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 11396790663749
+    "BENCH_MULT/S_MATRIX": 11396790663749,
+    "MKEYS/S_SORT": 7503.4,
+    "TCPxAIUCpm@1.0": 0
   },
   "2080ti": {
     "YEAR": 2018,
@@ -123,7 +133,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 9067.3,
+    "TCPxAIUCpm@1.0": 43.692
   },
   "P100": {
     "YEAR": 2016,
@@ -143,7 +155,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   },
   "K80": {
     "YEAR": 2014,
@@ -163,7 +177,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR5",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   },
   "T4": {
     "YEAR": 2018,
@@ -183,7 +199,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   },
   "A30": {
     "YEAR": 2021,
@@ -203,7 +221,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 3,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   },
   "L40": {
     "YEAR": 2022,
@@ -223,7 +243,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0
+    "BENCH_MULT/S_MATRIX": 0,
+    "MKEYS/S_SORT": 0,
+    "TCPxAIUCpm@1.0": 0
   }
 }
 
