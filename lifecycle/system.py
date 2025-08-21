@@ -1,4 +1,5 @@
 from . import constants
+import math
 from .grid_intensities import GRID_INTENSITY
 # from BenchmarkSettings import MemoryType  # Uncomment if needed
 
@@ -39,23 +40,31 @@ class System:
         # Constants
         MPA = 0.5  # Procure materials | kg CO2 per cm^2
         EPA = constants.get_energy_per_area(self.process_node) or 0  # Fab Energy | kWh per cm^2
-        CI_FAB = 0.486  # kg CO2 per kWh (Taiwan)
+        CI_FAB = 0.486  # kg CO2 per kWh (Taiwan grid mix)
         GPA = constants.get_gas_per_area(self.process_node) or 0  # Kg CO2 per cm^2
-        FAB_YIELD = 0.96  # Fab yield
 
-        # Calculate emissions
-        capex_gpu = (((CI_FAB * EPA) + GPA + MPA) * self.packaging_size) / FAB_YIELD
+        # ---- GPU die yield using Poisson model ----
+        D0 = 0.1  # defects per cm^2
+        die_area_cm2 = self.packaging_size  # assuming packaging_size is in cm^2
+        fab_yield = math.exp(-D0 * die_area_cm2)  # Poisson yield model
+
+        # ---- GPU embodied carbon ----
+        capex_gpu = (((CI_FAB * EPA) + GPA + MPA) * die_area_cm2) / fab_yield
+
+        # ---- HBM yield model ----
+        hbm_stack_yield = 0.95  # 95% yield per stack
         exponent = self.hbm_stacks if self.hbm_stacks is not None else 1
+        effective_hbm_yield = hbm_stack_yield ** exponent
 
         capex_vram = (
             self.vram_capacity * (constants.get_vram_embodied(self.memory_type) or 0)
-        ) * (1 / (FAB_YIELD ** exponent))
+        ) / effective_hbm_yield
 
         return {
             "GPU": capex_gpu,
             "TOTAL": capex_gpu + capex_vram
         }
-
+    
     def generate_accum_projected_opex_emissions(
         self,
         time_horizon,
