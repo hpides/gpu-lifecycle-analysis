@@ -75,7 +75,7 @@ export class System {
     console.log(CI_FAB * EPA + GPA + MPA)
     // Calculate emissions
     const capexCpu =
-      ((CI_FAB * EPA + GPA + MPA) * this.packagingSize) / FAB_YIELD;
+      (((CI_FAB * EPA) + GPA + MPA) * this.packagingSize) / FAB_YIELD;
 
     const exponent = this.hbmStacks == null ? 1 : this.hbmStacks;
 
