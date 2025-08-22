@@ -7,7 +7,7 @@ export interface CPUs {
 const CPU_DATA: CPUs = {
   "GH200 (H100)": {
     "YEAR": 2023,
-    "TDP_MAX": 1000,
+    "TDP_MAX": 700,
     "TDP_IDLE": 108,
     "CUDA_CORES": 14000,
     "PROCESS": 5,
@@ -73,7 +73,7 @@ const CPU_DATA: CPUs = {
   },
   "B200": {
     "YEAR": 2024,
-    "TDP_MAX": 700,
+    "TDP_MAX": 1000,
     "TDP_IDLE": 140,
     "CUDA_CORES": 33792,
     "PROCESS": 4,
