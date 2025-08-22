@@ -66,27 +66,29 @@ export class System {
     // Constants
     const MPA = 0.5; // Procure materials | kg CO2 per cm^2
     const EPA = constants.getEnergyPerArea(this.processNode) || 0; // Fab Energy | kWh per cm^2
-    const CI_FAB = 0.486; // g CO2 per kWh converted to kg CO2 per kWh (taiwan)
+    const CI_FAB = 0.486; // kg CO2 per kWh (Taiwan grid mix)
     const GPA = constants.getGasPerArea(this.processNode) || 0; // Kg CO2 per cm^2
-    const FAB_YIELD = 0.96; // Fab yield
 
-    console.log(this)
-    console.log(CI_FAB, EPA, GPA, MPA)
-    console.log(CI_FAB * EPA + GPA + MPA)
-    // Calculate emissions
-    const capexCpu =
-      (((CI_FAB * EPA) + GPA + MPA) * this.packagingSize) / FAB_YIELD;
+    // ---- GPU die yield using Poisson model ----
+    const D0 = 0.1; // defects per cm^2
+    const dieAreaCm2 = this.packagingSize;
+    const fabYield = Math.exp(-D0 * dieAreaCm2); // Poisson yield model
 
-    const exponent = this.hbmStacks == null ? 1 : this.hbmStacks;
+    // ---- GPU embodied carbon ----
+    const capexGPU = ((CI_FAB * EPA + GPA + MPA) * dieAreaCm2) / fabYield;
 
-    const capexVram = (this.vramCapacity * (constants.getVramEmbodied(this.memoryType) || 0)) * (1 / (FAB_YIELD ** exponent))
+    // ---- HBM yield model ----
+    const hbmStackYield = 0.95;
+    const exponent = this.hbmStacks ?? 1;
+    const effectiveHbmYield = Math.pow(hbmStackYield, exponent);
 
-    console.log(capexVram + capexCpu)
+    const vramEmbodied = constants.getVramEmbodied(this.memoryType) || 0;
+    const capexVRAM = (this.vramCapacity * vramEmbodied) / effectiveHbmYield;
 
     return {
-      CPU: capexCpu,
-      TOTAL: capexCpu + capexVram
-    }
+      CPU: capexGPU,
+      TOTAL: capexGPU + capexVRAM
+    };  
   }
 
   generateAccumProjectedOpexEmissions(

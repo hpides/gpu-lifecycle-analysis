@@ -112,17 +112,6 @@ export const BenchmarkProvider: React.FC<BenchmarkProviderProps> = ({ children }
 
   const emissionsScaling = scaling == 'Emissions';
 
-
-    packagingSize: number,
-    performanceIndicator: number,
-    lifetime: number,
-    vramCapacity: number,
-    processNode: number,
-    cpuTdpMax: number,
-    cpuTdpMin: number,
-    memoryType: MemoryType,
-    hbmStacks: number
-
   // Old System
   const oldSystem = new System(
     oldDieSize / 100, // dieSize in cm^2

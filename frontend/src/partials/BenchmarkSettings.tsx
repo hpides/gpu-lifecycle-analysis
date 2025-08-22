@@ -145,16 +145,12 @@ return (
           utilization={currentServer.utilization}
           setUtilization={(x) => updateUtilization(OLD_LABEL, {utilization: (x)} )}
         />
-          {
-            singleComparison ? null :
-              <UtilizationInput
-                label="New HW Utilization %:"
-                accent="accent-blue-500"
-                utilization={newServer.utilization}
-                setUtilization={(x) => updateUtilization(NEW_LABEL, {utilization: (x)} )}
-                hidden={!advancedSettings}
-              />
-          }
+          <UtilizationInput
+            label="New HW Utilization %:"
+            accent="accent-blue-500"
+            utilization={newServer.utilization}
+            setUtilization={(x) => updateUtilization(NEW_LABEL, {utilization: (x)} )}
+          />
       </div>
       <div className="flex font-normal gap-2 flex-col col-span-2">
         <ListItemWithSearch

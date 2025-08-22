@@ -23,8 +23,8 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 5,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 0,
-    "MKEYS/S_SORT": 0,
+    "BENCH_MULT/S_MATRIX": 144665461121157,
+    "MKEYS/S_SORT": 31157.75,
     "TCPxAIUCpm@1.0": 0
   },
   "V100": {
@@ -45,9 +45,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 7078503434490,
-    "MKEYS/S_SORT": 10722.2,
-    "TCPxAIUCpm@1.0": 40.121
+    "BENCH_MULT/S_MATRIX": 6918619735362,
+    "MKEYS/S_SORT": 15580.91,
+    "TCPxAIUCpm@1.0": 52.835
   },
   "A100": {
     "YEAR": 2020,
@@ -68,8 +68,8 @@ const CPU_DATA: CPUs = {
     "MEMORY_TYPE": "HBM2",
     "HPI_AVAILABLE": 1,
     "BENCH_MULT/S_MATRIX": 9195571412808,
-    "MKEYS/S_SORT": 13649.6,
-    "TCPxAIUCpm@1.0": 0
+    "MKEYS/S_SORT": 25823.81,
+    "TCPxAIUCpm@1.0": 46.839
   },
   "B200": {
     "YEAR": 2024,
@@ -89,9 +89,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 4,
     "MEMORY_TYPE": "HBM3",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 26129854927045,
+    "BENCH_MULT/S_MATRIX": 256410256410256,
     "MKEYS/S_SORT": 39145.8,
-    "TCPxAIUCpm@1.0": 0
+    "TCPxAIUCpm@1.0": 80.162
   },
   "A40": {
     "YEAR": 2020,
@@ -111,9 +111,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 11396790663749,
-    "MKEYS/S_SORT": 7503.4,
-    "TCPxAIUCpm@1.0": 0
+    "BENCH_MULT/S_MATRIX": 10652463382157,
+    "MKEYS/S_SORT": 13891.55,
+    "TCPxAIUCpm@1.0": 72.435
   },
   "2080ti": {
     "YEAR": 2018,
@@ -133,9 +133,9 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 1,
-    "BENCH_MULT/S_MATRIX": 0,
-    "MKEYS/S_SORT": 9067.3,
-    "TCPxAIUCpm@1.0": 43.692
+    "BENCH_MULT/S_MATRIX": 5820721769499,
+    "MKEYS/S_SORT": 10282.09,
+    "TCPxAIUCpm@1.0": 48.122
   },
   "P100": {
     "YEAR": 2016,
@@ -199,8 +199,8 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0,
-    "MKEYS/S_SORT": 0,
+    "BENCH_MULT/S_MATRIX": 1799532121648,
+    "MKEYS/S_SORT": 3984.64,
     "TCPxAIUCpm@1.0": 0
   },
   "A30": {
@@ -243,8 +243,8 @@ const CPU_DATA: CPUs = {
     "HBM_STACKS": 1,
     "MEMORY_TYPE": "GDDR6",
     "HPI_AVAILABLE": 0,
-    "BENCH_MULT/S_MATRIX": 0,
-    "MKEYS/S_SORT": 0,
+    "BENCH_MULT/S_MATRIX": 22154527831626,
+    "MKEYS/S_SORT": 8367.6,
     "TCPxAIUCpm@1.0": 0
   }
 }
