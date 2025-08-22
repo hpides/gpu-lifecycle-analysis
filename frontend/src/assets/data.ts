@@ -51,7 +51,7 @@ const CPU_DATA: CPUs = {
   },
   "A100": {
     "YEAR": 2020,
-    "TDP_MAX": 250,
+    "TDP_MAX": 400,
     "TDP_IDLE": 85,
     "CUDA_CORES": 6512,
     "PROCESS": 7,
