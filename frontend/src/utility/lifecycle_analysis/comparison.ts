@@ -61,7 +61,7 @@ export function generateSystemsComparison(
     oldSystemOpex = oldSystemOpex.map((opex) => opex / performanceFactor);
   } else {
     // Adjust new system OPEX based on performance factor
-    newSystemOpex = newSystemOpex.map((opex) => opex * performanceFactor);
+    // newSystemOpex = newSystemOpex.map((opex) => opex * performanceFactor);
   }
 
   // Add CAPEX to OPEX for the new system at each time step
