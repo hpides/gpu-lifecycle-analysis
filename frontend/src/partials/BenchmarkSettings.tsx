@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CPU_DATA from "../assets/data";
 import { GRID_INTENSITY } from "../assets/grid_intensities";
 import { ServerType, useBenchmarkContext, NEW_LABEL, OLD_LABEL } from "../utility/BenchmarkContext";
@@ -113,6 +114,17 @@ function BenchmarkSettings() {
       updateServer(otherServer, { utilization: scaledUtilization })
     }
   }
+
+  useEffect(() => {
+    if (scaling === "Utilization") {
+      const ratio = oldPerformanceIndicator / newPerformanceIndicator;
+      const scaledUtilization = clamp( currentServer.utilization as number * ratio, 0, 100);
+      if (newServer.utilization !== scaledUtilization) {
+        updateServer(newServer, { utilization: scaledUtilization });
+      }
+      return;
+    }
+  }, [scaling, currentServer, newServer])
 
 
 return (
