@@ -25,7 +25,7 @@ const CPU_DATA: CPUs = {
     "HPI_AVAILABLE": 1,
     "BENCH_MULT/S_MATRIX": 144665461121157,
     "MKEYS/S_SORT": 31157.75,
-    "TCPxAIUCpm@1.0": 0
+    "TCPxAIUCpm@1.0": 67.581
   },
   "V100": {
     "YEAR": 2017,

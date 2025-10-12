@@ -3,7 +3,7 @@ import { addCommaToNumber, yearToYearAndMonth, BLANK_SPACE, withinXPercent } fro
 import { ListItem } from "../utility/ListItems";
 
 function DetailedBreakdown() {
-  const { comparison, intersect, workload, singleComparison, oldPerformanceIndicator, newPerformanceIndicator, oldPowerConsumption, newPowerConsumption } = useBenchmarkContext();
+  const { comparison, intersect, workload, singleComparison, oldPerformanceIndicator, newPerformanceIndicator, scaling, oldPowerConsumption, newPowerConsumption } = useBenchmarkContext();
 
   const year = intersect ? yearToYearAndMonth(Number(intersect.x.toFixed(1)), false, true) : "No Break-Even";
   const total = intersect ? addCommaToNumber(Number(intersect.y.toFixed(1))) + " kgCO₂" : "No Break-even";
@@ -12,7 +12,13 @@ function DetailedBreakdown() {
   const titleText = singleComparison ? 'Current' : 'New'
 
   let perfRatio :any = (newPerformanceIndicator / oldPerformanceIndicator)
-  let consumptionRatio :any = (newPowerConsumption / oldPowerConsumption)
+  let normalizedOldPowerConsumption = oldPowerConsumption;
+
+  if (scaling === 'Emissions') {
+    normalizedOldPowerConsumption = oldPowerConsumption * perfRatio;
+  }
+
+  let consumptionRatio :any = (newPowerConsumption / normalizedOldPowerConsumption)
 
   const ratioDecimalPlaces = withinXPercent(perfRatio, consumptionRatio, 0.1) ? 3 : 1;
   perfRatio = perfRatio.toFixed(ratioDecimalPlaces).replace(/\.000$/, '');
@@ -20,7 +26,7 @@ function DetailedBreakdown() {
 
   let oldPerfFormatted = oldPerformanceIndicator.toFixed(1).replace(/\.0$/, '');
   let newPerfFormatted = newPerformanceIndicator.toFixed(1).replace(/\.0$/, '');
-  let oldConsumptionFormatted = oldPowerConsumption.toFixed(3).replace(/\.0$/, '');
+  let oldConsumptionFormatted = normalizedOldPowerConsumption.toFixed(3).replace(/\.0$/, '');
   let newConsumptionFormatted = newPowerConsumption.toFixed(3).replace(/\.0$/, '');
 
   newPerfFormatted = addCommaToNumber(Number(newPerfFormatted));
