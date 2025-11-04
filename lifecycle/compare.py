@@ -18,20 +18,20 @@ def float_to_days(year_fraction: float) -> int:
     return int(round(year_fraction * 365))
 
 
-def compare_gpus(df, gpu1: str, gpu2: str, workload: str, country: str,
-                 utilization1: float = 50, utilization2: float = 50, scaling: int = 0):
+def compare_gpus(df, old_gpu: str, new_gpu: str, workload: str, country: str,
+                 old_util: float = 50, new_util: float = 50, scaling: int = 0):
     """
     Compare two GPUs using the System and generate_systems_comparison logic.
 
     Args:
         df (pd.DataFrame): GPU dataset
-        gpu1 (str): Name of old system GPU (e.g., "A100")
-        gpu2 (str): Name of new system GPU (e.g., "V100")
+        old_gpu (str): Name of old system GPU (e.g., "A100")
+        new_gpu (str): Name of new system GPU (e.g., "V100")
         workload (int/float): Workload parameter
         country (str): Country code for grid intensity
         lifetime (int): System lifetime in years
-        utilization1 (float): Utilization (%) of gpu1
-        utilization2 (float): Utilization (%) of gpu2
+        utilization1 (float): Utilization (%) of old_gpu
+        utilization2 (float): Utilization (%) of new_gpu
         scaling (number): Type of scaling
 
     Returns:
@@ -51,21 +51,21 @@ def compare_gpus(df, gpu1: str, gpu2: str, workload: str, country: str,
         )
 
     # Look up rows
-    row1 = df[df["GPU"] == gpu1].iloc[0]
-    row2 = df[df["GPU"] == gpu2].iloc[0]
+    old_row = df[df["GPU"] == old_gpu].iloc[0]
+    new_row = df[df["GPU"] == new_gpu].iloc[0]
 
-    old_system = build_system(row1)
-    new_system = build_system(row2)
+    old_system = build_system(old_row)
+    new_system = build_system(new_row)
 
-    TIME_HORIZON = 100
+    TIME_HORIZON = 1000
 
     comparison = generate_systems_comparison(
-        new_system,
         old_system,
+        new_system,
         TIME_HORIZON,
         country,
-        utilization2,
-        utilization1,
+        old_util,
+        new_util,
         scaling
     )
 
@@ -99,8 +99,8 @@ def calculate_intersect(old_system_opex: list[float], new_system_opex: list[floa
     return intersect
 
 def generate_systems_comparison(
-    new_system: System,
     old_system: System,
+    new_system: System,
     time_horizon: int,
     country: str,
     old_system_utilization: float,
@@ -134,9 +134,6 @@ def generate_systems_comparison(
     if scaling == constants.SCALING_EMISSIONS:
         # Adjust old system OPEX based on performance factor
         old_system_opex = [opex / performance_factor for opex in old_system_opex]
-    elif scaling == constants.SCALING_UTILIZATION:
-        # Adjust new system OPEX based on performance factor
-        new_system_opex = [opex * performance_factor for opex in new_system_opex]
 
     # Add CAPEX to new system OPEX at each time step
     new_system_opex = [opex + new_system_capex for opex in new_system_opex]

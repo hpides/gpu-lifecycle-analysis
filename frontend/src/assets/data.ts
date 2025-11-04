@@ -78,7 +78,7 @@ const CPU_DATA: CPUs = {
     "CUDA_CORES": 33792,
     "PROCESS": 4,
     "DIE_SIZE": 1600,
-    "VRAM": 192,
+    "VRAM": 180,
     "BUS_WIDTH": 8192,
     "BASE_CLOCK": 1665,
     "BANDWIDTH": 8200,

@@ -2,7 +2,9 @@
 SORTING = "sorting"
 SPECINT = "specint"
 
-MMULT = "BENCH_MULT/S_MATRIX"
+MMULT_16 = "BENCH_MULT_FP16_TFLOPS"
+MMULT_32 = "BENCH_MULT_FP32_TFLOPS"
+MMULT_64 = "BENCH_MULT_FP64_TFLOPS"
 SORTING = "MKEYS/S_SORT"
 TPCXAI = "TCPxAIUCpm@10.0"
 FP16 = "FP16"
@@ -18,10 +20,19 @@ OLD_SYSTEM = "old_system"
 NEW_SYSTEM = "new_system"
 
 TIME_HORIZON = 100
+UTILIZATION_DEFAULT = 75
 
 SCALING_NONE = 0
 SCALING_UTILIZATION = 1
 SCALING_EMISSIONS = 2
+
+def get_scaling_string(scaling):
+    scaling_map = {
+        SCALING_NONE: "No Scaling",
+        SCALING_UTILIZATION: "Utilization Scaling",
+        SCALING_EMISSIONS: "Emissions Scaling",
+    }
+    return scaling_map.get(scaling, "Unknown Scaling")
 
 def get_energy_per_area(process_node):
     energy_map = {

@@ -82,6 +82,18 @@ export function generateSystemsComparison(
     (newOpex, index) => newOpex / oldSystemOpex[index]
   );
 
+  console.log({
+    newSystemOpex,
+    oldSystemOpex,
+    absSavings,
+    relativeSavings,
+    ratio,
+    capexBreakdown: newSystemCapexBreakdown,
+    opexBreakdown: newSystemEmissions.opexBreakdown,
+    oldPowerConsumption: oldSystemEmissions.opexBreakdown.TOTAL,
+    newPowerConsumption: newSystemEmissions.opexBreakdown.TOTAL,
+  });
+
   return {
     newSystemOpex,
     oldSystemOpex,
