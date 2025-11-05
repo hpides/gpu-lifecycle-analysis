@@ -15,7 +15,8 @@ class System:
         gpu_tdp_max,
         gpu_tdp_min,
         memory_type,
-        hbm_stacks
+        hbm_stacks,
+        name = ""
     ):
         """
         :param packaging_size: die size in cm^2
@@ -27,7 +28,7 @@ class System:
         :param memory_type:
         :param hbm_stacks: optional, defaults to 1
         """
-        self.packaging_size = packaging_size
+        self.packaging_size = packaging_size if name != "B200_HGX" else packaging_size / 2
         self.performance_indicator = performance_indicator
         self.vram_capacity = vram_capacity
         self.process_node = process_node
@@ -35,6 +36,7 @@ class System:
         self.gpu_tdp_min = gpu_tdp_min if gpu_tdp_min is not None else gpu_tdp_max * 0.1
         self.memory_type = memory_type
         self.hbm_stacks = hbm_stacks if hbm_stacks is not None else 1
+        self.name = name
 
     def calculate_capex_emissions(self):
         # Constants
@@ -50,6 +52,10 @@ class System:
 
         # ---- GPU embodied carbon ----
         capex_gpu = (((CI_FAB * EPA) + GPA + MPA) * die_area_cm2) / fab_yield
+
+        # ---- B200 has two 800mm2 dies, not a single 1600mm2 die, which would mess with the poisson model
+        if self.name == "B200_HGX":
+            capex_gpu = capex_gpu * 2
 
         # ---- HBM yield model ----
         hbm_stack_yield = 0.95  # 95% yield per stack

@@ -48,6 +48,7 @@ def compare_gpus(df, old_gpu: str, new_gpu: str, workload: str, country: str,
             row["TDP_IDLE"],             # idle TDP W
             row["MEMORY_TYPE"],          # memory type
             row["HBM_STACKS"],           # HBM stacks
+            row["GPU"]                   # GPU name
         )
 
     # Look up rows
