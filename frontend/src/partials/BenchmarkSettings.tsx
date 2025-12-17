@@ -13,10 +13,10 @@ import { ListItem, ListItemWithSearch } from "../utility/ListItems";
 import { WORKLOAD_EXPLANATIONS, SCALING_EXPLANATIONS } from "../utility/descriptions";
 import UtilizationInput from "../utility/UtilizationInput.js";
 
-export const WORKLOAD_TYPES = ['FP16', 'FP32', 'FP64', 'BENCH_MULT/S_MATRIX', 'MKEYS/S_SORT', 'TCPxAIUCpm@1.0'] as const;
+export const WORKLOAD_TYPES = ['FP16', 'FP32', 'FP64', 'BENCH_MULT/S_MATRIX', 'MKEYS/S_SORT', 'TPCxAIUCpm@10.0'] as const;
 export type WorkloadType = typeof WORKLOAD_TYPES[number];
 
-export const SCALING_TYPES = ['None', 'Utilization', 'Emissions'] as const;
+export const SCALING_TYPES = ['Workload', 'Utilization', 'Emissions'] as const;
 export type ScalingType = typeof SCALING_TYPES[number];
 
 export const MEMORY_TYPES = ['HBM2', 'HBM3', 'GDDR6', 'GDDR5'] as const;
@@ -50,7 +50,7 @@ export interface CPUEntry {
   HPI_AVAILABLE: number,
   'BENCH_MULT/S_MATRIX': PerformanceType,
   'MKEYS/S_SORT': PerformanceType,
-  'TCPxAIUCpm@1.0': PerformanceType
+  'TPCxAIUCpm@10.0': PerformanceType
 }
 
 type PerformanceKeys = {
@@ -63,13 +63,13 @@ export interface WorkloadMappingType {
   FP64: PerformanceKeys;
   'BENCH_MULT/S_MATRIX': PerformanceKeys;
   'MKEYS/S_SORT': PerformanceKeys;
-  'TCPxAIUCpm@1.0': PerformanceKeys;
+  'TPCxAIUCpm@10.0': PerformanceKeys;
 }
 
 export const WORKLOAD_MAPPING: WorkloadMappingType = {
   'BENCH_MULT/S_MATRIX': 'BENCH_MULT/S_MATRIX',
   'MKEYS/S_SORT': 'MKEYS/S_SORT',
-  'TCPxAIUCpm@1.0': 'TCPxAIUCpm@1.0',
+  'TPCxAIUCpm@10.0': 'TPCxAIUCpm@10.0',
   FP16: 'FP16',
   FP32: 'FP32',
   FP64: 'FP64',
